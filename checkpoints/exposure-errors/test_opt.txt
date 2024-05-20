@@ -1,0 +1,32 @@
+----------------- Options ---------------
+             aspect_ratio: 1.0                           
+               batch_size: 1                             
+          checkpoints_dir: ./checkpoints                 
+             dataset_mode: fivektest                     	[default: unaligned]
+             dataset_root: ../data//exposure_dataset/test/	[default: /home/user/disk/IH/IHD/]
+          display_winsize: 256                           
+                    epoch: latest                        
+                     eval: False                         
+                  gpu_ids: 2                             	[default: 0]
+                init_gain: 0.02                          
+                init_type: normal                        
+               input_file: input.txt                     
+                  isTrain: False                         	[default: None]
+                load_iter: 0                             	[default: 0]
+                load_size: 256                           	[default: None]
+         max_dataset_size: inf                           
+                    model: uec                           	[default: test]
+                     name: exposure-errors               	[default: experiment_name]
+                  no_flip: False                         
+                 num_test: 99999                         
+              num_threads: 4                             
+                    phase: test                          
+               preprocess: resize                        	[default: resize_and_crop]
+          ref_image_paths: ../data/exposure_dataset/GT_IMAGES/a0001-jmac_DSC1459.jpg
+              results_dir: ./results/                    
+           serial_batches: False                         
+                   suffix:                               
+                use_wandb: False                         
+                  verbose: False                         
+       wandb_project_name: CycleGAN-and-pix2pix          
+----------------- End -------------------
