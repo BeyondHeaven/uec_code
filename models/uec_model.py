@@ -15,7 +15,7 @@ class UECModel(BaseModel):
     def __init__(self, opt):
         super(UECModel, self).__init__(opt)
         self.opt = opt
-        self.loss_names = ['pix','tv','mon','psnr']
+        self.loss_names = ['pix','mon','psnr']
         self.model_names = ['G']
         self.visual_names = ['img1','fake_img','img2']
         # self.netG = NeurOP(net_opt['in_nc'],net_opt['out_nc'],net_opt['base_nf'],net_opt['cond_nf'],net_opt['init_model'])
@@ -33,7 +33,6 @@ class UECModel(BaseModel):
             self.cri_pix = nn.MSELoss()
             # self.cri_pix = nn.L1Loss()
             # self.cri_cos = CosineLoss()
-            self.cri_tv = TVLoss()
             self.cri_ratio = 1.0 / 10.0
             self.optimizer_G = torch.optim.Adam(self.netG.parameters(), lr=opt.lr*opt.e_lr_ratio,
                                                 betas=(opt.beta1, 0.999))
@@ -58,10 +57,9 @@ class UECModel(BaseModel):
 
     def backward(self):
         self.loss_pix = self.cri_pix(self.fake_img, self.img2)
-        self.loss_tv = self.cri_tv(self.fake_img)
         self.loss_psnr = 10 * torch.log10(1 / self.loss_pix)
         self.loss_mon = torch.mean(F.relu(self.fake_ref1 - self.fake_ref2))
-        self.loss = self.loss_pix + self.cri_ratio * self.loss_tv + self.loss_mon
+        self.loss = self.loss_pix + self.loss_mon
         self.loss.backward()
 
 
