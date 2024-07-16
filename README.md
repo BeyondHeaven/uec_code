@@ -15,6 +15,7 @@ pip install -r requirements.txt
 ### Pretrained Models
 In the "checkpoints" directory, we have made available two ".pth" files, representing the outcomes of training on both Afifi's Exposure-errors Dataset and our Radiometry Correction Dataset, respectively.
 
+write a English markdown based on the following:
 ## Training
 
 Make sure to replace `dataset_root` with the actual path where you downloaded the dataset.
@@ -22,6 +23,18 @@ Make sure to replace `dataset_root` with the actual path where you downloaded th
 ```shell
 python train.py  --name exposure --model uec --dataset_mode exposure --load_size 448 --preprocess resize_and_crop --gpu_ids 2  --save_epoch_freq 1 --lr 1e-4 --beta1 0.9 --lr_policy step --lr_decay_iters 6574200 --dataset_root ../data/exposure_dataset/INPUT_IMAGES/
 ```
+If you are using the Radiometry Correction Dataset, set `--dataset_mode` to `fivek`.
+We removed TVLoss because we found the performance to be better without it.
+| EV    | -2     | -1     | 0      | +1     | +2     | +3     |
+|-------|--------|--------|--------|--------|--------|--------|
+| w/ TVLoss  | 22.577 | 20.528 | 18.336 | 17.820 | 15.752 | 15.138 |
+| w/o TVLoss | 25.343 | 23.637 | 20.552 | 18.391 | 15.327 | 13.175 |
+To reproduce the results from the paper, please run:
+```shell
+git reset --hard 9578ef19c250b349d2a247913af8e5e902e7f707
+```
+
+
 
 ## Testing
 Replace `dataset_root` with the actual path for testing:
@@ -49,5 +62,3 @@ We brrow some code from [BargainNet](https://github.com/bcmi/BargainNet), [NeurO
 ## License Agreement
 
 - This repository with the provided code and pretrained model is available for non-commercial research purposes only.
-
-

@@ -59,7 +59,7 @@ class ExposureDataset(BaseDataset):
 
     def get_transform(self):
         transform_list = []
-        transform_list += [transforms.Resize(self.size)]
+        # transform_list += [transforms.Resize(self.size)]
         transform_list += [transforms.ToTensor()]
 
         return transforms.Compose(transform_list)
