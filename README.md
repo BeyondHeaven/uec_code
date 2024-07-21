@@ -15,7 +15,7 @@ pip install -r requirements.txt
 ### Pretrained Models
 In the "checkpoints" directory, we have made available two ".pth" files, representing the outcomes of training on both Afifi's Exposure-errors Dataset and our Radiometry Correction Dataset, respectively.
 
-write a English markdown based on the following:
+
 ## Training
 
 Make sure to replace `dataset_root` with the actual path where you downloaded the dataset.
@@ -24,7 +24,7 @@ Make sure to replace `dataset_root` with the actual path where you downloaded th
 python train.py  --name exposure --model uec --dataset_mode exposure --load_size 448 --preprocess resize_and_crop --gpu_ids 2  --save_epoch_freq 1 --lr 1e-4 --beta1 0.9 --lr_policy step --lr_decay_iters 6574200 --dataset_root ../data/exposure_dataset/INPUT_IMAGES/
 ```
 If you are using the Radiometry Correction Dataset, set `--dataset_mode` to `fivek`.
-We removed TVLoss because we found the performance to be better without it.
+We removed TVLoss because we found the performance to be better without it. The PSNR result is as following:
 
 | EV    | -2     | -1     | 0      | +1     | +2     | +3     |
 |-------|--------|--------|--------|--------|--------|--------|
