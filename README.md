@@ -1,4 +1,24 @@
-# Unsupervised Exposure Correction (UEC) Documentation
+# Unsupervised Exposure Correction (UEC) Documentation (Accepted by ECCV 2024)
+<div>
+<h4 align="center">
+<a href="https://arxiv.org/abs/2507.17252" target="_blank">
+<img src="https://img.shields.io/badge/arXiv-2507.17252-b31b1b?style=flat&logo=arXiv&logoColor=white">
+</a>
+&nbsp;&nbsp;&nbsp;
+<a href="https://pan.baidu.com/s/1iQgFoLWZXW7eswaM5U3_6Q?pwd=z1yh" target="_blank">
+<img src="https://img.shields.io/badge/Dataset-BDyun-0066FF?style=flat&logo=baidu&logoColor=white">
+</a>
+&nbsp;&nbsp;&nbsp;
+<a href="https://www.ecva.net/papers/eccv_2024/papers_ECCV/html/986_ECCV_2024_paper.php" target="_blank">
+<img src="https://img.shields.io/badge/ECCV-2024-FF6B00?style=flat&logo=eccv&logoColor=white">
+</a>
+&nbsp;&nbsp;&nbsp;
+<a href="https://www.ecva.net/papers/eccv_2024/papers_ECCV/papers/00986-supp.pdf" target="_blank">
+<img src="https://img.shields.io/badge/Supplementary-File-555555?style=flat&logo=adobeacrobatreader&logoColor=white">
+</a>
+</h4>
+</div>
+
 
 ## Prerequisite
 
